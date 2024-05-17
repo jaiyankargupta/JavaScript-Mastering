@@ -1,0 +1,204 @@
+
+The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as a tree of objects, with each object corresponding to a part of the document.
+
+
+Key Concepts of the DOM:
+
+
+Document: The root of the DOM tree, representing the entire HTML document.
+Nodes: Everything in an HTML document is a node, including elements, text, and attributes.
+Elements: Represented as HTML tags and form the building blocks of the DOM.
+Attributes: Provide additional information about elements (e.g., class, id, src).
+
+
+
+// Accessing the entire document
+console.log(document);
+
+
+Common Methods and Properties:
+
+const element = document.getElementById('myId');
+const elements = document.getElementsByClassName('myClass');
+const elements = document.getElementsByTagName('div');
+const element = document.querySelector('.myClass'); // Selects the first match -> css selectors
+const elements = document.querySelectorAll('.myClass'); // Selects all matches -> css selectors
+
+
+//create element
+
+const newElement = document.createElement('div');
+ 
+
+//add content
+
+newElement.textContent = "Hello World!";
+ or
+newElement.innerHTML = "<span>Hello World!</span>" 
+
+
+//add element to the DOM
+
+document.body.appendChild(newElement);
+ or
+const parentElement = document.getElementById('parent');
+parentElement.appendChild(newElement);
+
+
+
+
+//remove element from the DOM
+
+parentElement.removeChild(newElement);
+
+
+//Modifying Attributes:
+
+newElement.setAttribute('class', 'myClass');
+
+const className = newElement.getAttribute('class');
+
+newElement.removeAttribute('class');
+
+
+//Modifying Styles
+
+1.Directly:
+
+newElement.style.color = 'red';
+
+2. Using ClassList:
+
+newElement.classList.add('myClass'); //add class to newElement class
+newElement.classList.remove('myClass'); //remove class from newElement class
+newElement.classList.toggle('myClass'); //If the class is present, it removes it; if not, it adds it.
+element.classList.replace('oldClass', 'newClass'); //Replaces an existing class with a new class.
+
+
+
+
+//Advanced DOM Manipulations
+
+const original = document.getElementById('original');
+const clone = original.cloneNode(true); // true means deep clone (with child nodes)
+document.body.appendChild(clone);
+
+
+const newChild = document.createElement('div');
+newChild.textContent = 'I am new';
+const parent = document.getElementById('parent');
+const oldChild = document.getElementById('oldChild');
+parent.replaceChild(newChild, oldChild);
+
+
+const child = document.getElementById('child');
+const parent = child.parentNode;
+console.log(parent);
+
+
+const parent = document.getElementById('parent');
+const children = parent.childNodes; // Returns all child nodes including text nodes
+const elementChildren = parent.children; // Returns only element nodes
+console.log(children);
+
+const item = document.getElementById('item');
+const next = item.nextSibling; // Returns the next sibling node
+const nextElement = item.nextElementSibling; // Returns the next sibling element
+console.log(next);
+
+
+const item = document.getElementById('item');
+const next = item.nextSibling; // Returns the next sibling node
+const nextElement = item.nextElementSibling; // Returns the next sibling element
+console.log(next);
+
+const item = document.getElementById('item');
+const previous = item.previousSibling; // Returns the previous sibling node
+const previousElement = item.previousElementSibling; // Returns the previous sibling element
+console.log(previous);
+
+
+
+// accessing form elements 
+
+const form = document.getElementById('myForm');
+const inputs = form.elements; // Get all form elements
+console.log(inputs);
+
+const form = document.getElementById('myForm');
+const inputs = form.elements; // Get all form elements
+console.log(inputs);
+
+
+input.value = 'New value';
+
+
+document.getElementById('myElement').addEventListener('click', function(event) {
+    console.log('Clicked!');
+  }, true); // true for capturing, false (or omit) for bubbling
+
+  
+document.getElementById('myElement').addEventListener('click', function(event) {
+    console.log('Clicked!');
+  }, false); // true for capturing, false (or omit) for bubbling
+
+document.getElementById('myElement').addEventListener('click', function(event) {
+    event.stopPropagation();
+    console.log('Propagation stopped');
+  });
+  
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log('Form submission prevented');
+  });
+
+
+ const element = document.getElementById('myElement');
+element.style.color = 'red';
+element.style.backgroundColor = 'yellow';
+
+
+
+const parentList = document.getElementById('parentList');
+
+parentList.addEventListener('click', function(event) {
+  if (event.target.tagName === 'LI') {
+    console.log('Clicked on:', event.target.textContent);
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded and parsed');
+  });
+
+  
+  const element = document.getElementById('myElement');
+  const value = element.getAttribute('data-info');
+  console.log(value); // Outputs the value of the 'data-info' attribute
+   
+  element.setAttribute('data-info', 'newValue');
+
+
+  const exists = element.hasAttribute('data-info');
+  console.log(exists); // Outputs true or false
+  
+  element.removeAttribute('data-info');
+
+
+
+  const script = document.createElement('script');
+  script.src = 'path/to/script.js';
+  document.body.appendChild(script);
+  
+
+
+
+
+
+
+
+
+
+
+

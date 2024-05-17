@@ -1,0 +1,100 @@
+// Maestro's Wand in action
+const screenWidth = window.innerWidth;
+const pageHeight = window.innerHeight;
+
+console.log(`Screen Width: ${screenWidth}, Page Height: ${pageHeight}`);
+
+// Additional utility functions
+const locationURL = window.location.href;
+console.log(`Current URL: ${locationURL}`);
+
+const userAgent = window.navigator.userAgent;
+console.log(`User Agent: ${userAgent}`);
+
+
+// The direct messenger - alert
+window.alert("Behold the magic!");
+
+// The interactive wizard - prompt
+const userResponse = window.prompt("What is your name?");
+console.log(`Greetings, ${userResponse}!`);
+
+// The oracle of decisions - confirm
+const userDecision = window.confirm("Are you ready for the adventure?");
+
+
+
+
+Dance of the Elements: Working with Events 💃
+
+// The Dance of the Elements
+const button = document.getElementById("magicButton");
+
+button.addEventListener("click", () => {
+  console.log("Button clicked! Let the magic begin!");
+});
+
+// Additional events for an interactive ballet
+button.addEventListener("mouseover", () => {
+  console.log("The magic button feels the presence of the cursor!");
+});
+
+button.addEventListener("mouseout", () => {
+  console.log("The magic button bids farewell to the cursor!");
+});
+
+window.addEventListener("resize", () => {
+  console.log("The window has resized! The magic adapts!");
+});
+
+
+
+
+//setTimeout vs setInterval
+
+setTimeout and setInterval are both JavaScript functions used to execute code asynchronously after a specified delay. However, they differ in how they handle the timing of repeated executions.
+
+
+
+setTimeout
+
+Description: Executes a function or evaluates an expression after a specified delay (in milliseconds).
+Usage: Typically used when you want to execute a piece of code once after a delay.
+Return Value: Returns a unique identifier (timer ID) that can be used to cancel the execution using clearTimeout.
+
+setTimeout(function() {
+    console.log('This will be executed once after 2000 milliseconds');
+  }, 2000);
+
+  
+
+setInterval
+
+Description: Executes a function or evaluates an expression repeatedly at specified intervals (in milliseconds).
+Usage: Used when you want to repeatedly execute a piece of code at regular intervals until stopped.
+Return Value: Returns a unique identifier (interval ID) that can be used to cancel the execution using clearInterval.
+
+
+const intervalId = setInterval(function() {
+    console.log('This will be executed every 2000 milliseconds');
+  }, 2000);
+
+  
+//cancellation
+
+const timeoutId = setTimeout(function() {
+    console.log('This will be executed once after 2000 milliseconds');
+  }, 2000);
+  
+  const intervalId = setInterval(function() {
+    console.log('This will be executed every 2000 milliseconds');
+  }, 2000);
+  
+  // Cancelling setTimeout
+  clearTimeout(timeoutId);
+  
+  // Stopping setInterval after 10 seconds
+  setTimeout(function() {
+    clearInterval(intervalId);
+  }, 10000);
+  
